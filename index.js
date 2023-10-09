@@ -21,7 +21,7 @@ app.use(cors());
 app.use("/", routes);
 app.use("/static", express.static(path.join(__dirname, "static")));
 
-const port = 3001;
+const port = 3000;
 app.listen(port, function () {
   db.conn
     .authenticate()
