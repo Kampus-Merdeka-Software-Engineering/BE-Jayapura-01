@@ -3,7 +3,6 @@ const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const User = require("../models/user");
 
-
 module.exports = {
   register: async (req, res, next) => {
     if (
@@ -32,7 +31,7 @@ module.exports = {
       const data = await User.create(userData);
 
       res.status(201).json({
-        message: "User berhasil terdaftar",
+        message: "User Registered",
         data: data,
       });
     } catch (err) {
@@ -72,15 +71,15 @@ module.exports = {
       );
 
       if (passwordMatch) {
-        const token = jwt.sign(
-          { userId : userData.id },'secret', {expiresIn: '1h'} 
-        );
-        console.log("Token: ",token);
+        const token = jwt.sign({ userId: userData.id }, "secret", {
+          expiresIn: "1h",
+        });
+        console.log("Token: ", token);
         res.status(200).json({
           message: "Success login",
           data: {
-            user: userData, 
-            token: token, 
+            user: userData,
+            token: token,
           },
         });
       } else {
