@@ -4,7 +4,7 @@ const fs = require("fs");
 const path = require("path");
 
 const conn = new sequelize.Sequelize(
-  "mysql://avnadmin:AVNS_2vZNlzaU8jgJHV4rR1a@mysql-5a21497-sqlcapstoneproject123.aivencloud.com:28805/defaultdb?ssl-mode=REQUIRED",
+  "ini diganti dengan link dari aiven atau app sejenis",
   {
     ssl: fs.readFileSync(path.join(__dirname, "group1.pem")),
     dialect: "mysql",
