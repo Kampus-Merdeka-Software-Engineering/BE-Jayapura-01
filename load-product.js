@@ -1,15 +1,12 @@
 const fs = require("fs");
 const path = require("path");
 const { conn } = require("./db"); 
-const { Product } = require("./models/product")
+const { Product } = require("./models/products")
 
-// Path ke file JSON
-const filePath = path.join(__dirname, "static", "assets", "products.json");
+const filePath = path.join(__dirname, "json", "products.json");
 
-// Fungsi untuk memuat data produk ke dalam database
 async function loadProducts() {
   try {
-    // Sinkronisasi model dengan basis data
     await conn.sync();
 
     // Baca file JSON

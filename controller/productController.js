@@ -1,7 +1,6 @@
 
-const { Product } = require("../models/product");
+const { Product } = require("../models/products");
 
-//controller untuk mendapat semua produk dari database
 
 exports.getAllProduct = async(req, res) => {
     try{

@@ -18,10 +18,7 @@ module.exports = {
 
     try {
       const saltRounds = 10;
-      // Hash password menggunakan bcrypt
       const hashedPassword = await bcrypt.hash(req.body.password, saltRounds);
-
-      // Simpan data pengguna ke database, termasuk password yang sudah di-hash
       const userData = {
         username: req.body.username,
         email: req.body.email,
@@ -64,7 +61,6 @@ module.exports = {
         return;
       }
 
-      // Membandingkan password yang diterima dengan hash password di database
       const passwordMatch = await bcrypt.compare(
         req.body.password,
         userData.password
@@ -74,7 +70,6 @@ module.exports = {
         const token = jwt.sign({ userId: userData.id }, "secret", {
           expiresIn: "1h",
         });
-        console.log("Token: ", token);
         res.status(200).json({
           message: "Success login",
           data: {

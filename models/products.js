@@ -3,7 +3,7 @@ const conn = require("../db").conn; // Import koneksi database
 
 
 const Product = conn.define(
-  "Product",
+  "products",
   {
     id: {
       type: DataTypes.INTEGER,
